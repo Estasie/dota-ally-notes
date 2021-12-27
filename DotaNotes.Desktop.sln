@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotaNotes.WinForm", "DotaNotes.WinForm\DotaNotes.WinForm.csproj", "{392B4D68-AE2C-4DF2-A596-6DF1E4E2652D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotaNotes.Common", "DotaNotes.Common\DotaNotes.Common.csproj", "{42D9F422-415A-4AFB-B3E4-1494BF52D3D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotaNotes.Core", "DotaNotes.Core\DotaNotes.Core.csproj", "{F5DB7251-4F08-413A-BAB7-9A5B92E37F6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotaNotes.GSI", "DotaNotes.GSI\DotaNotes.GSI.csproj", "{F74F58FC-D2C1-4015-A845-4A2024E5036F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{392B4D68-AE2C-4DF2-A596-6DF1E4E2652D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{392B4D68-AE2C-4DF2-A596-6DF1E4E2652D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{392B4D68-AE2C-4DF2-A596-6DF1E4E2652D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{392B4D68-AE2C-4DF2-A596-6DF1E4E2652D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42D9F422-415A-4AFB-B3E4-1494BF52D3D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42D9F422-415A-4AFB-B3E4-1494BF52D3D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42D9F422-415A-4AFB-B3E4-1494BF52D3D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42D9F422-415A-4AFB-B3E4-1494BF52D3D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5DB7251-4F08-413A-BAB7-9A5B92E37F6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5DB7251-4F08-413A-BAB7-9A5B92E37F6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5DB7251-4F08-413A-BAB7-9A5B92E37F6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5DB7251-4F08-413A-BAB7-9A5B92E37F6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F74F58FC-D2C1-4015-A845-4A2024E5036F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F74F58FC-D2C1-4015-A845-4A2024E5036F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F74F58FC-D2C1-4015-A845-4A2024E5036F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F74F58FC-D2C1-4015-A845-4A2024E5036F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
