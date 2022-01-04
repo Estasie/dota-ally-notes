@@ -53,7 +53,7 @@
             // 
             this.groupBox1.Location = new System.Drawing.Point(12, 25);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(497, 371);
+            this.groupBox1.Size = new System.Drawing.Size(574, 371);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             // 
@@ -62,7 +62,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(521, 407);
+            this.ClientSize = new System.Drawing.Size(594, 407);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dotaStatusLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

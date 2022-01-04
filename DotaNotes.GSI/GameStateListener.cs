@@ -5,7 +5,6 @@ using System.Net;
 using System.Text.RegularExpressions;
 using System.Threading;
 using Dota2GSI.Nodes;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Dota2GSI
 {

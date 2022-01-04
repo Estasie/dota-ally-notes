@@ -1,4 +1,5 @@
-﻿using DotaNotes.DTO.Models;
+﻿using System;
+using DotaNotes.DTO.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace DotaNotes.DTO.Context
@@ -8,12 +9,17 @@ namespace DotaNotes.DTO.Context
         public DatabaseContext() 
         {
             ChangeTracker.LazyLoadingEnabled = false;
+            Database.EnsureCreated();
         }
 
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=DESKTOP-1H8EHBJ;Database=DotaNotes;Trusted_Connection=True;MultipleActiveResultSets=true");
+            var path = AppDomain.CurrentDomain.BaseDirectory;
+            var DbPath = $"{path}dotanotes.db";
+            optionsBuilder.UseSqlite($"Data Source={DbPath}");
+            
+            //optionsBuilder.UseSqlServer("Server=DESKTOP-1H8EHBJ;Database=DotaNotes;Trusted_Connection=True;MultipleActiveResultSets=true");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

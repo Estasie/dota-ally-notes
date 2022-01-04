@@ -17,4 +17,10 @@
       </Reference>
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Update="NoteDialogForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+    </ItemGroup>
+
 </Project>

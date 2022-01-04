@@ -23,7 +23,7 @@ namespace DotaNotes.WinForm
         private readonly Point _labelPos = new Point(50,15);
         private readonly Point _linkLabelPos = new Point(170,15);
         private readonly Point _noteInfoLabelPos = new Point(310, 15);
-        private readonly Point _noteButtonPos = new Point(430, 15);
+        private readonly Point _noteButtonPos = new Point(450, 15);
         private readonly Size _posOffset = new Size(0, 40);
         
         private bool isWorking = false;
@@ -142,9 +142,9 @@ namespace DotaNotes.WinForm
                     {
                         Name = user.SteamId64,
                         Location = noteInfoLabelPos,
-                        Text = user.Note == null ? "Нет заметок" : "Найдены заметки",
+                        Text = string.IsNullOrEmpty(user.Note) ? "Нет заметок" : "Найдены заметки",
                         Font = new Font("Calibri", 10),
-                        ForeColor = user.Note == null ? Color.Green : Color.Red,
+                        ForeColor = string.IsNullOrEmpty(user.Note) ? Color.Green : Color.Red,
                         Padding = new Padding(4),
                         Anchor = AnchorStyles.Left,
                         AutoSize = true
@@ -154,12 +154,20 @@ namespace DotaNotes.WinForm
                     {
                         Name = user.SteamId64,
                         Location = noteButtonPos,
-                        Text = user.Note == null ? "Добавить заметку" : "Изменить заметку",
+                        // Height = 100,
+                        // Width = 200,
+                        Text = string.IsNullOrEmpty(user.Note) ? "Добавить заметку" : "Изменить/прочитать заметку",
                         Font = new Font("Calibri", 9),
                         ForeColor = Color.Black,
                         Padding = new Padding(4),
                         Anchor = AnchorStyles.Left,
                         AutoSize = true
+                    };
+
+                    createNoteButton.Click += (sender, args) =>
+                    {
+                        NoteDialogForm modalForm = new NoteDialogForm(user);
+                        modalForm.ShowDialog();
                     };
                     
                     pictureBoxPos = Point.Add(pictureBoxPos, _posOffset);
