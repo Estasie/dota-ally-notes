@@ -31,10 +31,11 @@ namespace DotaNotes.WinForm
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NoteDialogForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +50,16 @@ namespace DotaNotes.WinForm
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Заметка";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(191, 183);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(176, 28);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Отмена";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -69,16 +80,6 @@ namespace DotaNotes.WinForm
             this.textBox1.Size = new System.Drawing.Size(352, 158);
             this.textBox1.TabIndex = 0;
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(191, 183);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(176, 28);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Отмена";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // NoteDialogForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -86,6 +87,7 @@ namespace DotaNotes.WinForm
             this.ClientSize = new System.Drawing.Size(407, 236);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon) (resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "NoteDialogForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
