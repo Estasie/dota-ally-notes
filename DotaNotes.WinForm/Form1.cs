@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics;
 using System.Drawing;
@@ -27,8 +28,8 @@ namespace DotaNotes.WinForm
         private readonly Size _posOffset = new Size(0, 40);
         
         private bool isWorking = false;
-        
-        
+
+
         private event Func<Task> DoWork;
 
         public Form1()
@@ -75,11 +76,18 @@ namespace DotaNotes.WinForm
         private void Dispose()
         {
             isWorking = false;
+            groupBox1.Controls.Clear();
             _gameStateListener.NewGameState -= OnNewGameState;
         }
         
         private void OnNewGameState(GameState gs)
         {
+            if (gs.Player.Activity != PlayerActivity.Playing)
+            {
+                groupBox1.Controls.Clear();
+                return;
+            }
+
             var playerSteamIds = _serverLogParserService.GetPlayerSteamIds();
             
             if (playerSteamIds == null) 
@@ -181,6 +189,12 @@ namespace DotaNotes.WinForm
                     groupBox1.Controls.Add(linkLabel);
                     groupBox1.Controls.Add(noteInfoLabel);
                     groupBox1.Controls.Add(createNoteButton);
+
+                    Control[] controls = {pictureBox,
+                        nicknameLabel,
+                        linkLabel,
+                        noteInfoLabel,
+                        createNoteButton };
                 }
             }
             else

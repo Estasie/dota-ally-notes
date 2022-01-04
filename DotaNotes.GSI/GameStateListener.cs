@@ -154,6 +154,7 @@ namespace Dota2GSI
                     else
                     if (gamestate.Player.Activity != PlayerActivity.Playing && isMatchStarted == true)
                     {
+                        CurrentGameState = gamestate;
                         isMatchStarted = false;
                     }
                 }
