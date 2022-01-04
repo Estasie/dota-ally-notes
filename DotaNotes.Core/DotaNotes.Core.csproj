@@ -18,6 +18,8 @@
 
     <ItemGroup>
       <ProjectReference Include="..\DotaNotes.Common\DotaNotes.Common.csproj" />
+      <ProjectReference Include="..\DotaNotes.DTO\DotaNotes.DTO.csproj" />
+      <ProjectReference Include="..\DotaNotes.GSI\DotaNotes.GSI.csproj" />
     </ItemGroup>
 
 </Project>

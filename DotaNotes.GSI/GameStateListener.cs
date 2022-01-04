@@ -13,6 +13,7 @@ namespace Dota2GSI
 
     public class GameStateListener : IGameStateListener, IDisposable
     {
+        private bool isMatchStarted = false;
         private bool isRunning = false;
         private int connection_port;
         private HttpListener net_Listener;
@@ -144,9 +145,18 @@ namespace Dota2GSI
                     using (StreamReader sr = new StreamReader(inputStream))
                         JSON = sr.ReadToEnd();
                     
-                    CurrentGameState = new GameState(JSON);
-
-                    Console.WriteLine(JSON);
+                    var gamestate = new GameState(JSON);
+                    //If player is playing now just change current game once and do nothing after
+                    if (gamestate.Player.Activity == PlayerActivity.Playing && isMatchStarted == false)
+                    {
+                        CurrentGameState = gamestate;
+                        isMatchStarted = true;
+                    }
+                    else
+                    if (gamestate.Player.Activity != PlayerActivity.Playing && isMatchStarted == true)
+                    {
+                        isMatchStarted = false;
+                    }
                 }
               
                 using (HttpListenerResponse response = context.Response)
@@ -155,11 +165,9 @@ namespace Dota2GSI
                     response.StatusDescription = "OK";
                     response.Close();
                 }
-                
-               
-                if(CurrentGameState.Player.Activity == PlayerActivity.Playing)
-                    this.Stop();
-               
+
+                // if(CurrentGameState.Player.Activity == PlayerActivity.Playing)
+                //     this.Stop();
             }
             catch (ObjectDisposedException)
             {

@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Dota2GSI.Nodes
 {
@@ -6,7 +10,7 @@ namespace Dota2GSI.Nodes
     {
         protected Newtonsoft.Json.Linq.JObject _ParsedData;
 
-        internal Node(string json_data)
+        public Node(string json_data)
         {
             if (json_data.Equals(""))
             {
@@ -15,7 +19,7 @@ namespace Dota2GSI.Nodes
             _ParsedData = Newtonsoft.Json.Linq.JObject.Parse(json_data);
         }
 
-        internal string GetString(string Name)
+        protected string GetString(string Name)
         {
             Newtonsoft.Json.Linq.JToken value;
             
@@ -25,7 +29,12 @@ namespace Dota2GSI.Nodes
                 return "";
         }
 
-        internal int GetInt(string Name)
+        public IEnumerable<SteamUser> GetSteamUsers()
+        {
+            return _ParsedData.Value<JObject>("response").Value<JArray>("players").ToObject<IEnumerable<SteamUser>>();
+        }
+
+        protected int GetInt(string Name)
         {
             Newtonsoft.Json.Linq.JToken value;
             
@@ -35,17 +44,17 @@ namespace Dota2GSI.Nodes
                 return -1;
         }
 
-        internal long GetLong(string Name)
+        protected long GetLong(string Name)
         {
             Newtonsoft.Json.Linq.JToken value;
 
-            if (_ParsedData.TryGetValue(Name, out value))
-                return Convert.ToInt64(value.ToString());
+            if(_ParsedData.TryGetValue(Name, out value))
+                return Convert.ToInt32(value.ToString());
             else
                 return -1;
         }
 
-        internal T GetEnum<T>(string Name)
+        protected T GetEnum<T>(string Name)
         {
             Newtonsoft.Json.Linq.JToken value;
             
@@ -55,7 +64,7 @@ namespace Dota2GSI.Nodes
                 return (T)Enum.Parse(typeof(T), "Undefined", true);
         }
 
-        internal bool GetBool(string Name)
+        protected bool GetBool(string Name)
         {
             Newtonsoft.Json.Linq.JToken value;
             

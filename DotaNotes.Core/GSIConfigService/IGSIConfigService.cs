@@ -2,6 +2,6 @@
 {
     public interface IGSIConfigService
     {
-        void Create();
+        bool Create();
     }
 }

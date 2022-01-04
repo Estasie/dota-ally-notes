@@ -9,13 +9,7 @@ namespace DotaNotes.Core.Common
 {
     public class GSIConfigService : IGSIConfigService
     {
-        public GSIConfigService()
-        {
-            Create();
-        }
-
-
-        public void Create()
+        public bool Create()
         {
             RegistryKey regKey = Registry.CurrentUser.OpenSubKey(ConfigurationManager.AppSettings["RegSteamFolder"]);
 
@@ -27,7 +21,7 @@ namespace DotaNotes.Core.Common
 
                 string gsiFile = gsiFolder + ConfigurationManager.AppSettings["FileName"];
 
-                if (File.Exists(gsiFile)) return;
+                if (File.Exists(gsiFile)) return true;
 
                 string[] contentofgsifile =
                 {
@@ -52,12 +46,8 @@ namespace DotaNotes.Core.Common
 
                 File.WriteAllLines(gsiFile, contentofgsifile);
             }
-            else
-            {
-                Console.WriteLine("Registry key for steam not found, cannot create Gamestate Integration file");
-                Console.ReadLine();
-                Environment.Exit(0);
-            }
+            
+            return false;
         }
     }
 }
